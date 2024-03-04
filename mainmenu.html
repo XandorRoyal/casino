@@ -8,12 +8,14 @@
         <link rel="stylesheet" href="./public/css/index.css">
         <script src="./public/js/index.js"></script>
         <script src="./public/js/loadPlayer.js"></script>
+        <script defer src="./public/js/accounting.js"></script>
     </head>
 
     <body>
         <h1>Quatro IIII Casino</h1>
         <p>Welcome to the casino, <span id="player"></span>!</p>
         <p>Select a game to get started!</p>
+        
 
         <div class="menu">
             <button class="btn" onclick="">Blackjack</button>
@@ -23,5 +25,14 @@
             <button class="soon-btn">Slot Machine</button>
 
         </div>
+
+        <div>Total Money:</div>
+        <div id="money">100</div>
+        <div>Total Chips:</div>
+        <div id="chips">100</div>
+        <input type="number" id="amount">
+        <button id="deposit">Deposit</button>
+        <button id="withdraw">Withdraw</button>
+        <div id="status">Would you like to deposit or withdraw from your money?</div>
     </body>
 </html>
