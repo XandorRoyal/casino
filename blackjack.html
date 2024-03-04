@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blackjack</title>
-    <link rel="stylesheet" href="blackjack.css">
+    <link rel="stylesheet" href="./public/css/blackjack.css">
 </head>
 <body>
     <div class="container">
@@ -12,7 +12,6 @@
             <h1>Blackjack</h1>
         </div>
         <div class="chip-area">
-        
             <div class="bet">
                 <input type="number" id="bet-amount" min="0" max="1000" placeholder="Enter bet amount">
                 <button id="place-bet">Place Bet</button>
@@ -21,10 +20,12 @@
         </div>
         <div class="game-area">
             <div class="player-area">
+                <p>Player</p>
                 <div class="player-hand" id="player-hand"></div>
                 <div class="player-score" id="player-score"></div>
             </div>
             <div class="dealer-area">
+                <p>Dealer</p>
                 <div class="dealer-hand" id="dealer-hand"></div>
                 <div class="dealer-score" id="dealer-score"></div>
             </div>
@@ -37,6 +38,6 @@
         <div class="message" id="message"></div>
     </div>
 
-    <script src="blackjack.js"></script>
+    <script src="./public/js/blackjack.js"></script>
 </body>
 </html>
