@@ -5,12 +5,24 @@ const btnWithdraw = document.getElementById('withdraw');
 const message = document.getElementById('status');
 const amount = document.getElementById('amount');
 
-var money = 100;
-var chips = 100;
+const getFunds = function () {
+    var chips = localstorage.getItem("chips");
+    var money = localstorage.getItem("money");
+    if (chips == null) {
+        localstorage.setItem("chips", 100);
+        var chips = 100;
+    }
+    if (money == null) {
+        localstorage.setItem("money", 100);
+        var money = 100;
+    }
+}
+
 var funds = 0;
 
 const addFunds = function(){
-    // Take this out to remove chip restriction
+    getFunds();
+    
     if (chips <= 0){
         message.innerHTML = "No chips left to cash out!"
         return;
@@ -32,6 +44,8 @@ const addFunds = function(){
 }
 
 const takeFunds = function(){
+    getFunds();
+    
     if(amount.value == ""){
         message.innerHTML = "Please enter a value!"
         return;
