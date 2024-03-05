@@ -4,25 +4,36 @@ const btnDeposit = document.getElementById('deposit');
 const btnWithdraw = document.getElementById('withdraw');
 const message = document.getElementById('status');
 const amount = document.getElementById('amount');
+var chips = 0;
+var money = 0;
+
+window.onload = function () {
+    getFunds();
+
+    chipCount.innerHTML = chips;
+    moneyCount.innerHTML = money;
+}
 
 const getFunds = function () {
-    var chips = localstorage.getItem("chips");
-    var money = localstorage.getItem("money");
+    chips = parseInt(localStorage.getItem("chips"));
+    money = parseInt(localStorage.getItem("money"));
     if (chips == null) {
-        localstorage.setItem("chips", 100);
-        var chips = 100;
+        console.log("Set Chips");
+        localStorage.setItem("chips", 100);
+        chips = 100;
     }
     if (money == null) {
-        localstorage.setItem("money", 100);
-        var money = 100;
+        localStorage.setItem("money", 100);
+        money = 100;
     }
+
 }
 
 var funds = 0;
 
 const addFunds = function(){
     getFunds();
-    
+
     if (chips <= 0){
         message.innerHTML = "No chips left to cash out!"
         return;
@@ -37,10 +48,15 @@ const addFunds = function(){
     money += funds;
     chips -= funds;
 
+    console.log(money, chips);
+
     chipCount.innerHTML = chips;
     moneyCount.innerHTML = money;
 
     message.innerHTML = `You have added ${funds} to your money!`
+
+    localStorage.setItem("chips", parseInt(chipCount.innerHTML));
+    localStorage.setItem("money", parseInt(moneyCount.innerHTML));
 }
 
 const takeFunds = function(){
@@ -58,6 +74,9 @@ const takeFunds = function(){
     chipCount.innerHTML = chips;
     moneyCount.innerHTML = money;
     message.innerHTML = `You have added ${funds} to your chips!`
+    
+    localStorage.setItem("chips", parseInt(chipCount.innerHTML));
+    localStorage.setItem("money", parseInt(moneyCount.innerHTML));
 }
 
 btnDeposit.addEventListener('click',addFunds)
