@@ -114,22 +114,23 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     document.getElementById('double-btn').addEventListener('click', () => {
-        if (!gameEnded || !canDouble) return;
-        const betAmountInput = document.getElementById('bet-amount');
-        const betAmount = parseInt(betAmountInput.value);
-        if (betAmount <= chips) {
-            chips -= betAmount;
-            document.getElementById('chip-total').textContent = chips;
-            betAmountInput.value *= 2;
-            canDouble = false;
-            betLocked = true;
-            playerHit();
-            dealerPlay();
-        } else {
-            displayMessage('Not enough chips for doubling!', 'red');
+        if (gameEnded || !canDouble) {
+            return displayMessage('Invalid action!', 'red');
         }
+        const betAmount = parseInt(document.getElementById('bet-amount').value);
+        if (betAmount > chips) {
+            return displayMessage('Not enough chips!', 'red');
+        }
+        chips -= betAmount;
+        document.getElementById('chip-total').textContent = chips;
+        document.getElementById('bet-amount').value = betAmount * 2;
+        playerHand.push(dealCard());
+        updatePlayerScore();
+        renderHands();
+        dealerHand.push(dealCard());
+        updateDealerScore();
+        endGame();
     });
-
     document.getElementById('split-btn').addEventListener('click', () => {
         if (!gameEnded || !canSplit) return;
         const betAmountInput = document.getElementById('bet-amount');
