@@ -259,6 +259,7 @@ function endGame() {
     const dealerScore = calculateScore(dealerHand);
     gameEnded = true;
     betLocked = false;
+    document.getElementById('bet-amount').disabled = false;
     canDouble = false;
     canSplit = false;
     document.getElementById('hit-btn').style.display = 'none';
