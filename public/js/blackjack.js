@@ -83,6 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
             displayMessage('Invalid bet amount or game already started!', 'red');
         }
     });
+});
 
     document.getElementById('deal-btn').addEventListener('click', () => {
         if (!betLocked) {
@@ -132,21 +133,26 @@ document.addEventListener('DOMContentLoaded', () => {
         endGame();
     });
     document.getElementById('split-btn').addEventListener('click', () => {
-        if (!gameEnded || !canSplit) return;
-        const betAmountInput = document.getElementById('bet-amount');
-        const betAmount = parseInt(betAmountInput.value);
-        if (betAmount <= chips) {
-            chips -= betAmount;
-            document.getElementById('chip-total').textContent = chips;
-            betAmountInput.value *= 2;
-            canSplit = false;
-            betLocked = true;
-            splitCards();
-        } else {
-            displayMessage('Not enough chips for splitting!', 'red');
+        if (!gameStarted || gameEnded || betLocked || !canSplit) {
+            return displayMessage('Invalid action!', 'red');
         }
+        const betAmount = parseInt(document.getElementById('bet-amount').value);
+        if (betAmount > chips) {
+            return displayMessage('Not enough chips!', 'red');
+        }
+        chips -= betAmount;
+        document.getElementById('chip-total').textContent = chips;
+        document.getElementById('bet-amount').value = betAmount * 2; // Assuming split doubles the bet
+        const newHand = [playerHand.pop()]; // Remove one card from current hand and put it into a new hand
+        const newCard = dealCard(); // Deal a new card for both hands
+        playerHand.push(newCard);
+        newHand.push(newCard);
+        playerHands.push(newHand); // Add new hand to playerHands array
+        updatePlayerScore();
+        renderHands();
+        stand(); // Automatically stand after splitting
     });
-});
+
 
 function dealInitialCards() {
     for (let i = 0; i < 2; i++) {
