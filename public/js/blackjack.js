@@ -142,15 +142,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         chips -= betAmount;
         document.getElementById('chip-total').textContent = chips;
-        document.getElementById('bet-amount').value = betAmount * 2; // Assuming split doubles the bet
-        const newHand = [playerHand.pop()]; // Remove one card from current hand and put it into a new hand
-        const newCard = dealCard(); // Deal a new card for both hands
+        document.getElementById('bet-amount').value = betAmount * 2; 
+        const newHand = [playerHand.pop()]; 
+        const newCard = dealCard(); 
         playerHand.push(newCard);
         newHand.push(newCard);
-        playerHands.push(newHand); // Add new hand to playerHands array
+        playerHands.push(newHand); 
         updatePlayerScore();
         renderHands();
-        stand(); // Automatically stand after splitting
+        stand(); 
     });
 
 
