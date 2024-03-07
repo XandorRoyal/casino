@@ -75,9 +75,58 @@ i {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
-    background-color: aqua;
 }
 
 .section {
     margin: 10px;
+    
+}
+
+.btn2 {
+    width: 80px;
+    margin-left: 5px;
+    font-size: 14px;
+    background-color: #9d0208;
+    color: whitesmoke;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+.btn2:hover {
+    background-color: #6a040f;
+}
+
+.back-btn {
+    margin: 10px auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #ebebeb;
+    color: #9d0208;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    width: 200px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    text-align: center;
+    align-self: center;
+}
+
+.back-btn:hover {
+    background-color: #c0c0c0;
+}
+
+a {
+    text-decoration: none;
+    color: #9d0208;
+    font-weight: 700;
+}
+
+.other {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

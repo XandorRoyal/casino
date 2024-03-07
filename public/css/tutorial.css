@@ -19,7 +19,7 @@ h1 {
 .tutorial-container {
     padding: 20px;
     width: 600px;
-    border: 2px #9d0208;
+    border: 5px #9d0208;
     border-style: dotted dashed solid double;
     margin: 20px;
     margin-top: 0;

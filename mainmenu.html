@@ -12,29 +12,20 @@
     </head>
 
     <body>
-        <!-- <div class="topbar">
-            <div class="section">
-                
-            </div>
-
-            <div class="section">
-                <i class="fa-xl fa-solid fa-sack-dollar"></i> : <span id="money">100</span>
-            </div>
-            <br>
-            <div class="section">
-                <i class="fa-xl fa-solid fa-coins"></i> : <span id="chips">100</span>
-            </div>
-            
-        </div> -->
-
         <div class="topbar">
             <div class="section">
                 <i class="fa-xl fa-solid fa-sack-dollar"></i> : <span id="money">100</span>
             </div>
             
             <div class="section">
-                <i class="fa-xl fa-solid fa-coins"></i> : <span id="chips">100</span>
+                <i class="fa-xl fa-solid fa-coins"></i> : <span id="chips"></span>
             </div>
+        </div>
+
+        <div class="topbar">
+            <input type="number" id="amount">
+            <button class="btn2" id="deposit">Deposit</button>
+            <button class="btn2" id="withdraw">Withdraw</button>
         </div>
 
         <h1>Quatro IIII Casino</h1>
@@ -51,22 +42,13 @@
 
         </div>
 
-        <!-- <div class="menu2">
-            <button class="btn" onclick="location.href = './blackjack.html'">Blackjack Tutorial</button>
-            <button class="btn" onclick="">Roulette</button>
-            <button class="soon-btn">5-Card Poker</button>
-            <button class="soon-btn">Craps</button>
-            <button class="soon-btn">Slot Machine</button>
+        <h3>Miscellaneous Options:</h3>
 
-        </div> -->
-
-        <div>Total Money:</div>
-        <div id="money">100</div>
-        <div>Total Chips:</div>
-        <div id="chips">100</div>
-        <input type="number" id="amount">
-        <button id="deposit">Deposit</button>
-        <button id="withdraw">Withdraw</button>
-        <div id="status">Would you like to deposit or withdraw from your money?</div>
+        <div class="other">
+            <button class="btn" onclick="location.href = './blackjacktut.html'">Blackjack Tutorial</button>
+            <button class="btn" onclick="location.href = './roulettetut.html'">Roulette Tutorial</button>
+            <button class="btn" onclick="location.href = './Credits.html'">Credits</button>
+        </div>
+        
     </body>
 </html>
