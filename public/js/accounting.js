@@ -16,12 +16,12 @@ window.onload = function () {
 const getFunds = function () {
     chips = parseInt(localStorage.getItem("chips"));
     money = parseInt(localStorage.getItem("money"));
-    if (chips == null) {
+    if (chips == null || chips == Number.NaN) {
         console.log("Set Chips");
         localStorage.setItem("chips", 100);
         chips = 100;
     }
-    if (money == null) {
+    if (money == null || chips == Number.NaN) {
         localStorage.setItem("money", 100);
         money = 100;
     }
