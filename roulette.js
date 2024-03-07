@@ -64,6 +64,18 @@ const play = function() {
     switch(playerChoice){
         case 'choice':
             console.log("Player bets choice");
+            if(choice == selectedNum){
+                console.log("You Win!")
+                message.innerHTML = `You Win ${bet} dollars!`
+                bet = bet * 36;
+                chips = chips + bet;
+                chipCount.innerHTML = chips;
+            }else{
+                console.log("You Lose!")
+                message.innerHTML = "You lose!"
+                chips = chips - bet;
+                chipCount.innerHTML = chips;
+            }
             break;
         case 'even':
             console.log("Player bets even");
@@ -128,34 +140,36 @@ const play = function() {
     }
 }
 
-// const currentBet = function(){
-//     choice = betInput.value;
-//     betNums[inputTotal] = choice;
-//     inputTotal ++;
-//     playerChoice = 'choice';
-//     console.log(playerChoice)
-//     console.log(betNums)
-//     //betChoice.innerHTML(betNums);
-// }
+const currentChoice = function(){
+    choice = betInput.value;
+    playerChoice = 'choice';
+    message.innerHTML = `You are betting on ${choice}`;
+    console.log(playerChoice)
+    console.log(choice);
+}
 
 const bettingEven = function(){
     playerChoice = 'even';
     console.log(playerChoice)
+    message.innerHTML = 'You are betting on EVEN numbers';
 }
 
 const bettingOdd = function(){
     playerChoice = 'odd';
-    console.log(playerChoice)
+    console.log(playerChoice);
+    message.innerHTML = 'You are betting on ODD numbers';
 }
 
 const bettingRed = function(){
     playerChoice = 'red';
-    console.log(playerChoice)
+    console.log(playerChoice);
+    message.innerHTML = 'You are betting on RED numbers';
 }
 
 const bettingBlack = function(){
     playerChoice = 'black';
-    console.log(playerChoice)
+    console.log(playerChoice);
+    message.innerHTML = 'You are betting on BLACK numbers';
 }
 
 const arrayFinder = function(array, number){
@@ -168,18 +182,10 @@ const arrayFinder = function(array, number){
     
 }
 
-console.log(playerChoice);
-arrayFinder(rouletteNum);
-btnChoiceInput.addEventListener('click', currentBet);
+btnChoiceInput.addEventListener('click', currentChoice);
 btnPlay.addEventListener('click', play);
 btnEven.addEventListener('click', bettingEven);
 btnOdd.addEventListener('click', bettingOdd);
 btnRed.addEventListener('click', bettingRed);
 btnBlack.addEventListener('click', bettingBlack);
 btnBetInput.addEventListener('click', betSelector);
-
-// Dozen - 3:1
-// Column - 3:1
-// Square Number (4-Number) - 9:1
-// Split Number (2-Number) - 18:1
-// Straight Number (1-Number) - 36:1
