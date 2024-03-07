@@ -4,6 +4,10 @@ let betLocked = false;
 let canDouble = false;
 let canSplit = false;
 
+window.onload = () => {
+    updateChipTotal(0);
+}
+
 function updateChipTotal(amount) {
     chips += amount;
     localStorage.setItem("chips", chips);
