@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blackjack</title>
+    <link rel="stylesheet" href="./public/css/blackjack.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Blackjack</h1>
+        </div>
+        <div class="chip-area">
+            <div class="bet">
+                <input type="number" id="bet-amount" min="1" max="1000" placeholder="Enter bet amount">
+                <button id="place-bet">Place Bet</button>
+            </div>
+            <div class="chip-total">Chips: <span id="chip-total">1000</span></div>
+        </div>
+        <div class="game-area">
+            <div class="player-area">
+                <p>Player</p>
+                <div class="player-hand" id="player-hand"></div>
+                <div class="player-score" id="player-score"></div>
+            </div>
+            <div class="dealer-area">
+                <p>Dealer</p>
+                <div class="dealer-hand" id="dealer-hand"></div>
+                <div class="dealer-score" id="dealer-score"></div>
+            </div>
+        </div>
+        <div class="buttons">
+            <button id="deal-btn" style="display: none;">Deal</button>
+            <button id="hit-btn" style="display: none;">Hit</button>
+            <button id="stand-btn" style="display: none;">Stand</button>
+            <button id="double-btn" style="display: none;">Double</button>
+            <button id="split-btn" style="display: none;">Split</button>
+        </div>
+        <div class="message" id="message"></div>
+    </div>
+
+    <script src="./public/js/blackjack.js"></script>
+</body>
+</html>
